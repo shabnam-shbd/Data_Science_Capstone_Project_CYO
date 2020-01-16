@@ -1,5 +1,5 @@
 ---
-title: "Identification of Depression Using Machine Learning Techniques"
+title: "Supervised machine learning techniques to predict depression in ambulatory care setting"
 author: "Sharmin Shabnam"
 date: "1/10/2020"
 output: 
@@ -270,7 +270,8 @@ namcs_clean %>%
 
 #Race distribution of Depression
 namcs_clean %>%
-  mutate(RACER=cut(as.numeric(RACER), breaks=c(1,2,3,4), labels=c("White", "Black","Other"), right=FALSE)) %>%
+  mutate(RACER=cut(as.numeric(RACER), breaks=c(1,2,3,4),
+                   labels=c("White", "Black","Other"), right=FALSE)) %>%
   ggplot(aes(x = as.factor(DEPRN), fill= RACER)) + theme_light() +
   geom_bar() + 
   labs(title="Race distribution of Depression", x="Depression", y="Count") +
